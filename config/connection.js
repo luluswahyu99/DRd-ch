@@ -1,9 +1,15 @@
 const {Pool} = require('pg')
 
+let database = 'DRd'
+
+if (process.env.NODE_ENV === 'test') {
+    database = 'DRd-test'
+}
+
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
-    database: 'DRd',
+    database: database,
     password: 'postgre',
     port: 5432,
     idleTimeoutMillis: 100

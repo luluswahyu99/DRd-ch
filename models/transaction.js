@@ -20,7 +20,7 @@ class TransactionModel {
             values ($1, $2, $3, $4, $5, $6, $7)
         `
         const total = price * qty
-        const created_at = new Date()
+        const created_at = new Date().toISOString()
         const values = [customer_id, menu, price, qty, payment, total, created_at]
 
         await pool.query(query, values)
